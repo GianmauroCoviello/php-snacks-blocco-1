@@ -1,52 +1,37 @@
 <?php
 
-    
-    // $nome= $_GET['nome'];
-    
-    
-    // $email= $_GET['email'];
-    
-    // $età= $_GET['età'];
+    // inseriamo tutte le variabili in GET facendo riferimento agli input della form in isset che avrà il compito di controllare se le variabili sono presenti o se hanno un valore Null
+    if(isset($_GET['name']) && isset($_GET['email']) && isset($_GET['age'])){
+        // dichiarazione variabili
+        $name = $_GET['name'];
+        $email = $_GET['email'];
+        $age = $_GET['age'];
+        $results = true;
 
-    // echo $nome." ".$email." ".$età;
-    // if ( is_numeric($età)) {
-    //     echo 'accesso consetito';
-    // } else {
-    //     echo 'accesso negato';
-    // }
-
-    // if ( strlen($nome)>= 3) {
-    //     echo 'accesso consetito';
-    // } else {
-    //     echo 'accesso negato';
-    // }
-
-    // if (strpos($email, '@') && strpos($email, '.')) {
-    //     echo 'accesso consetito';
-    // } else {
-    //     echo 'accesso negato';
-    // }
-    
-
-
-    // if(isset($_GET['name']) && isset($_GET['email']) && isset($_GET['age'])){
-    //     $name = $_GET['name'];
-    //     $email = $_GET['email'];
-    //     $age = $_GET['age'];
+        
+        
 
     
-    
-    //     if ((strlen($name) > 3) && strpos($email, '@') && strpos($email, '.') && is_numeric($age) ) {
+        // inseriamo le diverse condizioni che la form dovra essere sottoposta
+        if ((strlen($name) > 3) && strpos($email, '@') && strpos($email, '.') && is_numeric($age) ) {
+            // se le condizioni sono tutte verificate allora results avrà il seguente valore 
+            $results = 'Accesso consentito';
+            
+        }
+        else{
+            // altrimenti
+            $results= ' Accesso negato';
+            
 
-    //         echo 'Accesso consentito';
+        }
 
-    //     }
-    //     else{
-    //         echo 'accesso negato';
-    //     }
+        
+        
     
     
-    // }
+    }
+   
+
 
 ?>
 
@@ -66,28 +51,11 @@
         <button>INVIA DATI</button>
     </form>
     <h3>
+        
         <?php
-        
-            if(isset($_GET['name']) && isset($_GET['email']) && isset($_GET['age'])){
-                $name = $_GET['name'];
-                $email = $_GET['email'];
-                $age = $_GET['age'];
-        
-            
-            
-                if ((strlen($name) > 3) && strpos($email, '@') && strpos($email, '.') && is_numeric($age) ) {
-        
-                    echo 'Accesso consentito';
-        
-                }
-                else{
-                    echo 'accesso negato';
-                }
-            
-            
-            }
-    
-        
+            // chiamata della variabile condizionale
+            echo $results;
+               
         ?>
     </h3>
     
