@@ -20,6 +20,21 @@ if (isset($_GET['name']) && isset($_GET['email']) && isset($_GET['age'])) {
         // altrimenti
         $results = ' Accesso negato';
     }
+
+    // ulteriore condizione per il controllo della compilazione dei campi input
+    if ($name == ''){
+
+        $results = 'compila il campo name';
+
+    } elseif ($email == '' ) {
+
+        $results = 'compila il campo email';
+
+    } elseif ($age == '' ) {
+
+        $results = 'compila il campo età';
+
+    }
 }
 
 
